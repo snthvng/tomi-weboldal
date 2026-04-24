@@ -52,7 +52,7 @@ export default function Services() {
         </div>
 
         {/* Mobile: stacked cards / Desktop: two-column */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', gap: '1rem' }}>
+        <div className="services-grid">
 
           {/* Left — service list */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>

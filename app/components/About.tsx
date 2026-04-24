@@ -24,12 +24,9 @@ export default function About() {
           <div style={{ flex: 1, height: '1px', background: 'rgba(255,255,255,0.06)' }} />
         </div>
 
-        <div style={{
+        <div className="about-grid" style={{
           background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.06)',
           borderRadius: '2rem', padding: '2rem',
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
-          gap: '2rem', alignItems: 'start'
         }}>
           {/* Left */}
           <div>

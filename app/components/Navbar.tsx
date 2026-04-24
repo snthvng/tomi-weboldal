@@ -13,12 +13,12 @@ export default function Navbar() {
         Sinthavong Tamás
       </span>
       <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-        <a href="#services" style={{ color: '#6B6B6B', fontSize: '0.75rem', letterSpacing: '0.05em', textDecoration: 'none' }}
+        <a href="#services" className="nav-hide" style={{ color: '#6B6B6B', fontSize: '0.75rem', letterSpacing: '0.05em', textDecoration: 'none' }}
           onMouseEnter={e => (e.currentTarget.style.color = '#F5F5F5')}
           onMouseLeave={e => (e.currentTarget.style.color = '#6B6B6B')}>
           Services
         </a>
-        <a href="#about" style={{ color: '#6B6B6B', fontSize: '0.75rem', letterSpacing: '0.05em', textDecoration: 'none' }}
+        <a href="#about" className="nav-hide" style={{ color: '#6B6B6B', fontSize: '0.75rem', letterSpacing: '0.05em', textDecoration: 'none' }}
           onMouseEnter={e => (e.currentTarget.style.color = '#F5F5F5')}
           onMouseLeave={e => (e.currentTarget.style.color = '#6B6B6B')}>
           About

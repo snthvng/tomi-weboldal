@@ -110,3 +110,29 @@ body {
 .scanline {
   animation: scanline 4s linear infinite;
 }
+
+/* Mobile layout */
+.about-grid, .services-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.nav-links a.nav-hide {
+  display: inline;
+}
+
+@media (max-width: 640px) {
+  .about-grid, .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-hide {
+    display: none !important;
+  }
+
+  .navbar-inner {
+    padding: 0.5rem 1rem !important;
+  }
+}
