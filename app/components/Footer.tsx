@@ -86,12 +86,8 @@ export default function Footer() {
 
       <footer style={{
         background: '#0A0A0A', borderTop: '1px solid rgba(255,255,255,0.05)',
-        padding: '1.5rem 2.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-        flexWrap: 'wrap', gap: '1rem'
+        padding: '1.5rem 2.5rem', display: 'flex', justifyContent: 'center', alignItems: 'center',
       }}>
-        <span style={{ fontFamily: 'var(--font-mono)', color: '#E8650A', fontSize: '0.85rem', letterSpacing: '0.15em' }}>
-          snthvng
-        </span>
         <span style={{ fontFamily: 'var(--font-mono)', color: '#2E2E2E', fontSize: '0.65rem', letterSpacing: '0.1em' }}>
           © {new Date().getFullYear()} Sinthavong Tamás. All rights reserved.
         </span>
