@@ -21,8 +21,17 @@ const services = [
     visual: "⚡"
   },
   {
-    id: "production",
+    id: "influencer",
     number: "03",
+    title: "Influencer Marketing",
+    subtitle: "The right voice for your brand.",
+    description: "From selection to execution — I identify the right influencers for your brand, manage the collaboration, and develop content ideas that feel authentic and drive real results.",
+    tags: ["Influencer selection", "Collaboration management", "Content ideation"],
+    visual: "🤝"
+  },
+  {
+    id: "production",
+    number: "04",
     title: "Content Production",
     subtitle: "Content that stops the scroll.",
     description: "Photo and video production made for social — Reels, Stories, campaign visuals. I handle the creative side so your feed looks as good as it performs.",

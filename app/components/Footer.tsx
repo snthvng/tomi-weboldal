@@ -1,8 +1,8 @@
 export default function Footer() {
   return (
     <>
-      <section id="contact" style={{ background: '#0A0A0A', padding: '3rem 2rem' }}>
-        <div style={{ maxWidth: '650px', margin: '0 auto' }}>
+      <section id="contact" style={{ background: '#0A0A0A', padding: '3rem 1.25rem' }}>
+        <div style={{ maxWidth: '750px', margin: '0 auto' }}>
 
           {/* Header */}
           <div style={{ marginBottom: '2rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
