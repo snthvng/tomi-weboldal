@@ -10,7 +10,7 @@ export default function Navbar() {
       border: '1px solid rgba(232,101,10,0.15)', borderRadius: '999px'
     }}>
       <span style={{ fontFamily: 'var(--font-mono)', color: '#E8650A', fontSize: '0.9rem', letterSpacing: '0.15em', fontWeight: 600 }}>
-        snthvng
+        Sinthavong Tamás
       </span>
       <div style={{ display: 'flex', alignItems: 'center', gap: '2rem' }}>
         <a href="#services" style={{ color: '#6B6B6B', fontSize: '0.8rem', letterSpacing: '0.08em', textDecoration: 'none', transition: 'color 0.2s' }}

@@ -1,12 +1,14 @@
+"use client";
+
 const stats = [
-  { value: "5+", label: "Years experience" },
-  { value: "30+", label: "Projects delivered" },
+  { value: "5+", label: "Years in social media" },
+  { value: "30+", label: "Campaigns delivered" },
   { value: "15+", label: "Happy clients" },
 ];
 
 export default function About() {
   return (
-    <section id="about" style={{ background: '#0A0A0A', padding: '8rem 2rem' }}>
+    <section id="about" style={{ background: '#0A0A0A', padding: '3rem 2rem' }}>
       <div style={{
         maxWidth: '1100px', margin: '0 auto',
         background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.06)',
@@ -29,32 +31,22 @@ export default function About() {
             fontWeight: 700, color: '#F5F5F5', marginBottom: '1.5rem',
             letterSpacing: '-0.03em', lineHeight: 1.15
           }}>
-            We make brands<br />
-            <span style={{ color: '#E8650A' }}>impossible to ignore.</span>
+            Social-first.<br />
+            <span style={{ color: '#E8650A' }}>Results-obsessed.</span>
           </h2>
           <p style={{
             fontFamily: 'var(--font-inter)', fontSize: '0.95rem',
             color: '#6B6B6B', lineHeight: 1.85, marginBottom: '1rem'
           }}>
-            snthvng is a digital marketing studio built for brands that want to stand out. We combine sharp strategy with bold creative to drive real, measurable results.
+            I&apos;ve spent the last 5 years living and breathing social media — building strategies, running paid campaigns, and creating content that actually moves people. From Meta ads to full content production, I work at the intersection of data and creativity.
           </p>
           <p style={{
             fontFamily: 'var(--font-inter)', fontSize: '0.95rem',
             color: '#6B6B6B', lineHeight: 1.85
           }}>
-            From the first touchpoint to the final conversion — we&apos;re with you every step of the way.
+            Whether it&apos;s a scroll-stopping Reel, a high-performing PPC campaign, or a social strategy built from scratch — I bring the same obsession to every project.
           </p>
 
-          <a href="#contact" style={{
-            display: 'inline-flex', alignItems: 'center', gap: '0.5rem', marginTop: '2rem',
-            fontFamily: 'var(--font-mono)', fontSize: '0.75rem',
-            color: '#E8650A', letterSpacing: '0.12em', textTransform: 'uppercase',
-            textDecoration: 'none', border: '1px solid rgba(232,101,10,0.3)',
-            padding: '0.6rem 1.4rem', borderRadius: '999px',
-            background: 'rgba(232,101,10,0.06)'
-          }}>
-            Let&apos;s work together →
-          </a>
         </div>
 
         {/* Right — Stats */}
