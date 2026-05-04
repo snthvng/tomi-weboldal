@@ -1,4 +1,20 @@
+"use client";
+import { useLang } from "../context/lang";
+
 export default function Hero() {
+  const { lang } = useLang();
+
+  const t = {
+    hu: {
+      badge: "Új projektekre elérhető",
+      sub: "Stratégia, hirdetés, gyártás és még sok más.",
+    },
+    en: {
+      badge: "Available for new projects",
+      sub: "Strategy, advertising, production and more.",
+    },
+  };
+
   return (
     <section className="relative flex flex-col items-center justify-center px-6 text-center overflow-hidden" style={{ minHeight: '70vh', paddingTop: '7rem', paddingBottom: '2rem' }}>
 
@@ -35,7 +51,7 @@ export default function Hero() {
         textTransform: 'uppercase', position: 'relative', zIndex: 1
       }}>
         <span style={{ width: 6, height: 6, borderRadius: '50%', background: '#E8650A', display: 'inline-block', animation: 'pulse-orange 2s infinite' }} />
-        Available for new projects
+        {t[lang].badge}
       </div>
 
       <h1 className="animate-fade-up-delay-1" style={{ position: 'relative', zIndex: 1,
@@ -57,7 +73,7 @@ export default function Hero() {
         fontFamily: 'var(--font-inter)', fontSize: 'clamp(0.85rem, 2vw, 1rem)',
         color: '#6B6B6B', letterSpacing: '0.03em', maxWidth: '380px', lineHeight: 1.7,
       }}>
-        Strategy, advertising, production and more.
+        {t[lang].sub}
       </p>
     </section>
   );

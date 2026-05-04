@@ -1,4 +1,24 @@
+"use client";
+import { useLang } from "../context/lang";
+
 export default function Footer() {
+  const { lang } = useLang();
+
+  const t = {
+    hu: {
+      label: "Kapcsolat",
+      heading: "Van egy projekted?",
+      sub: "Beszéljük meg, hogyan növelhetjük együtt a márkádat.",
+    },
+    en: {
+      label: "Contact",
+      heading: "Got a project?",
+      sub: "Let's talk about how we can grow your brand together.",
+    }
+  };
+
+  const copy = t[lang];
+
   return (
     <>
       <section id="contact" style={{ background: '#0A0A0A', padding: '3rem 1.25rem' }}>
@@ -13,7 +33,7 @@ export default function Footer() {
               background: 'rgba(232,101,10,0.08)', border: '1px solid rgba(232,101,10,0.2)',
               padding: '0.35rem 1.2rem', borderRadius: '999px'
             }}>
-              Contact
+              {copy.label}
             </span>
             <div style={{ flex: 1, height: '1px', background: 'rgba(255,255,255,0.06)' }} />
           </div>
@@ -26,10 +46,10 @@ export default function Footer() {
               fontFamily: 'var(--font-space)', fontSize: 'clamp(1.8rem, 4vw, 2.8rem)',
               fontWeight: 700, color: '#F5F5F5', marginBottom: '0.75rem', letterSpacing: '-0.03em'
             }}>
-              Got a project?
+              {copy.heading}
             </h2>
             <p style={{ fontFamily: 'var(--font-inter)', color: '#6B6B6B', fontSize: '0.9rem', marginBottom: '2rem', lineHeight: 1.7 }}>
-              Let&apos;s talk about how we can grow your brand together.
+              {copy.sub}
             </p>
             <a href="mailto:tamas@snthvng.com" className="glow-orange" style={{
               display: 'inline-block', background: '#E8650A', color: '#0A0A0A',

@@ -1,47 +1,76 @@
 "use client";
 import { useState } from "react";
+import { useLang } from "../context/lang";
 
-const services = [
-  {
-    id: "strategy",
-    number: "01",
-    title: "Strategy",
-    subtitle: "Plan smarter. Grow faster.",
-    description: "Social-first marketing strategies built around your brand and audience. From content calendars to full campaign planning — I map out what to post, when, and why it works.",
-    tags: ["Social Media Strategy", "Content planning", "Campaign planning", "Analytics"],
-    visual: "📐"
-  },
-  {
-    id: "ppc",
-    number: "02",
-    title: "Social PPC",
-    subtitle: "Maximum reach. Minimum waste.",
-    description: "Performance-focused ad campaigns on Meta, TikTok and beyond. Every forint spent is tracked, tested, and optimized — so your budget actually works for you.",
-    tags: ["Meta Ads", "TikTok Ads", "Retargeting", "Performance"],
-    visual: "⚡"
-  },
-  {
-    id: "influencer",
-    number: "03",
-    title: "Influencer Marketing",
-    subtitle: "The right voice for your brand.",
-    description: "From selection to execution — I identify the right influencers for your brand, manage the collaboration, and develop content ideas that feel authentic and drive real results.",
-    tags: ["Influencer selection", "Collaboration management", "Content ideation"],
-    visual: "🤝"
-  },
-  {
-    id: "production",
-    number: "04",
-    title: "Content Production",
-    subtitle: "Content that stops the scroll.",
-    description: "Photo and video production made for social — Reels, Stories, campaign visuals. I handle the creative side so your feed looks as good as it performs.",
-    tags: ["Video", "Photography", "Reels", "Motion"],
-    visual: "🎬"
-  }
-];
+const services = {
+  hu: [
+    {
+      id: "strategy", number: "01", title: "Stratégia",
+      subtitle: "Okosabb tervezés. Gyorsabb növekedés.",
+      description: "Social-first marketingstratégiák, amelyek a márkád és a közönséged köré épülnek. A tartalomkalendártól a teljes kampánytervezésig — meghatározom, mit, mikor és miért érdemes posztolni.",
+      tags: ["Közösségi média stratégia", "Tartalomtervezés", "Kampánytervezés", "Analitika"],
+      visual: "📐"
+    },
+    {
+      id: "ppc", number: "02", title: "Social PPC",
+      subtitle: "Maximális elérés. Minimális veszteség.",
+      description: "Teljesítményorientált hirdetési kampányok Meta, TikTok és más platformokon. Minden elköltött forintot nyomon követünk, tesztelünk és optimalizálunk — hogy a büdzsé valóban dolgozzon érted.",
+      tags: ["Meta Ads", "TikTok Ads", "Remarketing", "Teljesítmény"],
+      visual: "⚡"
+    },
+    {
+      id: "influencer", number: "03", title: "Influencer Marketing",
+      subtitle: "A megfelelő hang a márkádhoz.",
+      description: "A kiválasztástól a kivitelezésig — azonosítom a márkádhoz illő influencereket, kezelem az együttműködést, és olyan tartalomötleteket dolgozok ki, amelyek hitelesek és valódi eredményeket hoznak.",
+      tags: ["Influencer kiválasztás", "Együttműködés kezelése", "Tartalomötletek"],
+      visual: "🤝"
+    },
+    {
+      id: "production", number: "04", title: "Tartalomgyártás",
+      subtitle: "Tartalom, amely megállítja a scrollt.",
+      description: "Socialra szánt fotó- és videógyártás — Reels, Stories, kampányvizuálok. A kreatív oldalt én intézem, hogy a feedjed annyira teljesítsen, amennyire jól néz ki.",
+      tags: ["Videó", "Fotózás", "Reels", "Mozgókép"],
+      visual: "🎬"
+    }
+  ],
+  en: [
+    {
+      id: "strategy", number: "01", title: "Strategy",
+      subtitle: "Plan smarter. Grow faster.",
+      description: "Social-first marketing strategies built around your brand and audience. From content calendars to full campaign planning — I map out what to post, when, and why it works.",
+      tags: ["Social Media Strategy", "Content planning", "Campaign planning", "Analytics"],
+      visual: "📐"
+    },
+    {
+      id: "ppc", number: "02", title: "Social PPC",
+      subtitle: "Maximum reach. Minimum waste.",
+      description: "Performance-focused ad campaigns on Meta, TikTok and beyond. Every forint spent is tracked, tested, and optimized — so your budget actually works for you.",
+      tags: ["Meta Ads", "TikTok Ads", "Retargeting", "Performance"],
+      visual: "⚡"
+    },
+    {
+      id: "influencer", number: "03", title: "Influencer Marketing",
+      subtitle: "The right voice for your brand.",
+      description: "From selection to execution — I identify the right influencers for your brand, manage the collaboration, and develop content ideas that feel authentic and drive real results.",
+      tags: ["Influencer selection", "Collaboration management", "Content ideation"],
+      visual: "🤝"
+    },
+    {
+      id: "production", number: "04", title: "Content Production",
+      subtitle: "Content that stops the scroll.",
+      description: "Photo and video production made for social — Reels, Stories, campaign visuals. I handle the creative side so your feed looks as good as it performs.",
+      tags: ["Video", "Photography", "Reels", "Motion"],
+      visual: "🎬"
+    }
+  ]
+};
+
+const sectionLabel = { hu: "Szolgáltatások", en: "Services" };
 
 export default function Services() {
   const [active, setActive] = useState(0);
+  const { lang } = useLang();
+  const list = services[lang];
 
   return (
     <section id="services" style={{ background: '#0A0A0A', padding: '3rem 1.25rem' }}>
@@ -55,7 +84,7 @@ export default function Services() {
             background: 'rgba(232,101,10,0.08)', border: '1px solid rgba(232,101,10,0.2)',
             padding: '0.35rem 1.2rem', borderRadius: '999px'
           }}>
-            Services
+            {sectionLabel[lang]}
           </span>
           <div style={{ flex: 1, height: '1px', background: 'rgba(255,255,255,0.06)' }} />
         </div>
@@ -65,7 +94,7 @@ export default function Services() {
 
           {/* Left — service list */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-            {services.map((s, i) => (
+            {list.map((s, i) => (
               <div
                 key={s.id}
                 onClick={() => setActive(i)}
@@ -117,29 +146,29 @@ export default function Services() {
             borderRadius: '1.5rem', padding: '2rem',
             display: 'flex', flexDirection: 'column', justifyContent: 'space-between', gap: '1.5rem'
           }}>
-            <div key={active} style={{ animation: 'fadeUp 0.35s ease forwards' }}>
-              <span style={{ fontSize: '2rem', display: 'block', marginBottom: '1rem' }}>{services[active].visual}</span>
+            <div key={`${lang}-${active}`} style={{ animation: 'fadeUp 0.35s ease forwards' }}>
+              <span style={{ fontSize: '2rem', display: 'block', marginBottom: '1rem' }}>{list[active].visual}</span>
               <h3 style={{
                 fontFamily: 'var(--font-space)', fontSize: '1.5rem',
                 fontWeight: 700, color: '#F5F5F5', marginBottom: '0.4rem', letterSpacing: '-0.02em'
               }}>
-                {services[active].title}
+                {list[active].title}
               </h3>
               <p style={{
                 fontFamily: 'var(--font-mono)', fontSize: '0.68rem',
                 color: '#E8650A', letterSpacing: '0.12em', textTransform: 'uppercase', marginBottom: '1rem'
               }}>
-                {services[active].subtitle}
+                {list[active].subtitle}
               </p>
               <p style={{
                 fontFamily: 'var(--font-inter)', fontSize: '0.88rem',
                 color: '#6B6B6B', lineHeight: 1.85
               }}>
-                {services[active].description}
+                {list[active].description}
               </p>
             </div>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-              {services[active].tags.map(tag => (
+              {list[active].tags.map(tag => (
                 <span key={tag} style={{
                   fontFamily: 'var(--font-mono)', fontSize: '0.6rem',
                   color: '#E8650A', border: '1px solid rgba(232,101,10,0.25)',
