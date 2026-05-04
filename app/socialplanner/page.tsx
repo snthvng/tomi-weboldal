@@ -33,11 +33,10 @@ const content = {
     ],
     screenshotsLabel: "Képernyőképek",
     screenshots: [
-      { src: "/screenshots/ss1.png", alt: "Naptár nézet — teljes hónap" },
-      { src: "/screenshots/ss2.png", alt: "Naptár + ötletek oldalsáv" },
-      { src: "/screenshots/ss3.jpg", alt: "Poszt modal jóváhagyási gombokkal" },
-      { src: "/screenshots/ss4.jpg", alt: "Feed előnézet — Instagram rács" },
-      { src: "/screenshots/ss5.png", alt: "Mobilos nézet" },
+      { src: "/screenshots/d1.png", alt: "Tartalom naptár", mobile: false },
+      { src: "/screenshots/d2.png", alt: "Poszt szerkesztő", mobile: false },
+      { src: "/screenshots/d3.png", alt: "Feed előnézet", mobile: false },
+      { src: "/screenshots/m1.png", alt: "Mobilos nézet", mobile: true },
     ],
     faqLabel: "GYIK",
     faqs: [
@@ -86,11 +85,10 @@ const content = {
     ],
     screenshotsLabel: "Screenshots",
     screenshots: [
-      { src: "/screenshots/ss1.png", alt: "Calendar — full month view" },
-      { src: "/screenshots/ss2.png", alt: "Calendar + ideas sidebar" },
-      { src: "/screenshots/ss3.jpg", alt: "Post modal with approval buttons" },
-      { src: "/screenshots/ss4.jpg", alt: "Feed preview — Instagram grid" },
-      { src: "/screenshots/ss5.png", alt: "Mobile view" },
+      { src: "/screenshots/d1.png", alt: "Content calendar", mobile: false },
+      { src: "/screenshots/d2.png", alt: "Post editor", mobile: false },
+      { src: "/screenshots/d3.png", alt: "Feed preview", mobile: false },
+      { src: "/screenshots/m1.png", alt: "Mobile view", mobile: true },
     ],
     faqLabel: "FAQ",
     faqs: [
@@ -178,7 +176,7 @@ export default function SocialPlannerPage() {
           {t.nav.back}
         </a>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-          <a href="https://social-planner-test.netlify.app/" target="_blank" rel="noopener noreferrer" style={{
+          <a href="https://social-planner-test.netlify.app/?client=2" target="_blank" rel="noopener noreferrer" style={{
             background: '#E8650A', color: '#0A0A0A', fontSize: '0.72rem',
             letterSpacing: '0.05em', textDecoration: 'none', fontWeight: 700,
             padding: '0.45rem 1rem', borderRadius: '999px', fontFamily: 'var(--font-mono)'
@@ -230,7 +228,7 @@ export default function SocialPlannerPage() {
           {t.heroSub}
         </p>
         <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-          <a href="https://social-planner-test.netlify.app/" target="_blank" rel="noopener noreferrer" style={{
+          <a href="https://social-planner-test.netlify.app/?client=2" target="_blank" rel="noopener noreferrer" style={{
             background: '#E8650A', color: '#0A0A0A', fontFamily: 'var(--font-mono)',
             fontSize: '0.82rem', fontWeight: 700, letterSpacing: '0.1em', textDecoration: 'none',
             padding: '0.9rem 2.5rem', borderRadius: '999px',
@@ -277,38 +275,51 @@ export default function SocialPlannerPage() {
         </div>
       </section>
 
-      {/* Screenshots */}
+      {/* Screenshots — 2×2 grid */}
       <section style={{ padding: '3rem 1.5rem' }}>
-        <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
+        <div style={{ maxWidth: '900px', margin: '0 auto' }}>
           {divider(t.screenshotsLabel)}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1rem' }}>
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: '1fr 1fr',
+            gridTemplateRows: 'auto auto',
+            gap: '0.75rem'
+          }}>
             {t.screenshots.map((s, i) => (
               <div
                 key={i}
                 onClick={() => setLightbox(i)}
                 style={{
                   borderRadius: '1rem', overflow: 'hidden',
-                  border: '1px solid rgba(255,255,255,0.07)',
+                  border: '1px solid rgba(255,255,255,0.08)',
                   cursor: 'zoom-in', position: 'relative',
-                  background: 'rgba(255,255,255,0.02)'
+                  background: 'rgba(255,255,255,0.02)',
+                  aspectRatio: '1 / 1',
                 }}
               >
                 <Image
                   src={s.src}
                   alt={s.alt}
-                  width={700}
-                  height={440}
-                  style={{ width: '100%', height: 'auto', display: 'block', transition: 'transform 0.3s', objectFit: 'cover' }}
-                  onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.02)')}
+                  fill
+                  sizes="(max-width: 640px) 50vw, 420px"
+                  style={{ objectFit: 'cover', transition: 'transform 0.3s ease' }}
+                  onMouseEnter={e => (e.currentTarget.style.transform = 'scale(1.04)')}
                   onMouseLeave={e => (e.currentTarget.style.transform = 'scale(1)')}
                 />
+                {/* Hover label */}
                 <div style={{
                   position: 'absolute', bottom: 0, left: 0, right: 0,
-                  padding: '0.75rem 1rem',
-                  background: 'linear-gradient(0deg, rgba(10,10,10,0.85) 0%, transparent 100%)',
-                  fontFamily: 'var(--font-mono)', fontSize: '0.6rem',
-                  color: '#6B6B6B', letterSpacing: '0.08em'
+                  padding: '1.5rem 1rem 0.75rem',
+                  background: 'linear-gradient(0deg, rgba(10,10,10,0.8) 0%, transparent 100%)',
+                  fontFamily: 'var(--font-mono)', fontSize: '0.58rem',
+                  color: 'rgba(255,255,255,0.45)', letterSpacing: '0.1em',
+                  textTransform: 'uppercase',
+                  display: 'flex', alignItems: 'center', gap: '0.4rem'
                 }}>
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.6 }}>
+                    <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                    <line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/>
+                  </svg>
                   {s.alt}
                 </div>
               </div>
@@ -395,7 +406,7 @@ export default function SocialPlannerPage() {
             {t.ctaSub}
           </p>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <a href="https://social-planner-test.netlify.app/" target="_blank" rel="noopener noreferrer" style={{
+            <a href="https://social-planner-test.netlify.app/?client=2" target="_blank" rel="noopener noreferrer" style={{
               background: '#E8650A', color: '#0A0A0A', fontFamily: 'var(--font-mono)',
               fontSize: '0.8rem', fontWeight: 700, letterSpacing: '0.1em', textDecoration: 'none',
               padding: '0.9rem 2rem', borderRadius: '999px',
