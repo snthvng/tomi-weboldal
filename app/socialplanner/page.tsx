@@ -7,13 +7,13 @@ type Lang = "hu" | "en";
 const content = {
   hu: {
     meta: { title: "Social Planner — snthvng", desc: "Profi Instagram-tartalom tervező marketing ügynökségeknek és freelancereknek." },
-    nav: { back: "← snthvng", demo: "Demo →" },
+    nav: { back: "← snthvng", demo: "Test demo" },
     badge: "v1.6 — Elérhető most",
     heroTitle: "Social Planner",
     heroSub: "Profi Instagram-tartalom tervező marketing freelancereknek és ügynökségeknek. Kezelj 3 ügyfelet, küldj jóváhagyási linkeket, tervezz tartalmat — mind a saját márkáddal.",
     demoBtn: "Próbáld ki a demót →",
     howBtn: "Hogyan működik",
-    stats: [["~15 perc", "Beállítás"], ["Ingyenes", "Tárhelydíj"], ["3", "Ügyfél / planner"], ["100%", "A te adatod"]],
+    stats: [["10.000 Ft", "Egyszeri díj"], ["~15 perc", "Beállítás"], ["Ingyenes", "Tárhelydíj"], ["3", "Ügyfél / planner"], ["100%", "A te adatod"]],
     featuresLabel: "Funkciók",
     features: [
       { icon: "📅", title: "Tartalom naptár", desc: "Havi és heti nézet — posztok tervezése, ütemezése, mindent egy pillantásra látsz." },
@@ -59,13 +59,13 @@ const content = {
   },
   en: {
     meta: { title: "Social Planner — snthvng", desc: "Professional Instagram content planner for marketing agencies and freelancers." },
-    nav: { back: "← snthvng", demo: "Try demo →" },
+    nav: { back: "← snthvng", demo: "Test demo" },
     badge: "v1.6 — Available now",
     heroTitle: "Social Planner",
     heroSub: "A professional Instagram content planner for marketing freelancers and agencies. Manage 3 clients, share approval links, plan content — all under your own brand.",
     demoBtn: "Try the demo →",
     howBtn: "How it works",
-    stats: [["~15 min", "Setup time"], ["Free", "Hosting cost"], ["3", "Clients / planner"], ["100%", "Your data"]],
+    stats: [["10,000 HUF", "One-time fee"], ["~15 min", "Setup time"], ["Free", "Hosting cost"], ["3", "Clients / planner"], ["100%", "Your data"]],
     featuresLabel: "Features",
     features: [
       { icon: "📅", title: "Content Calendar", desc: "Monthly and weekly view — plan posts, schedule content, see everything at a glance." },
@@ -200,7 +200,7 @@ export default function SocialPlannerPage() {
       </nav>
 
       {/* Hero */}
-      <section style={{ padding: '10rem 1.5rem 4rem', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+      <section style={{ padding: 'clamp(7rem, 18vw, 10rem) 1.25rem 3rem', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
         <div style={{
           position: 'absolute', inset: 0, pointerEvents: 'none',
           background: 'radial-gradient(ellipse 60% 50% at 50% 30%, rgba(232,101,10,0.08) 0%, transparent 70%)'
@@ -246,11 +246,11 @@ export default function SocialPlannerPage() {
           </a>
         </div>
         {/* Stats */}
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '3rem', marginTop: '4rem', flexWrap: 'wrap' }}>
+        <div className="sp-stats">
           {t.stats.map(([val, label]) => (
             <div key={label} style={{ textAlign: 'center' }}>
-              <div style={{ fontFamily: 'var(--font-space)', fontSize: '2rem', fontWeight: 700, color: '#E8650A' }}>{val}</div>
-              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: '#6B6B6B', letterSpacing: '0.12em', textTransform: 'uppercase', marginTop: '0.25rem' }}>{label}</div>
+              <div className="sp-stat-val" style={{ fontFamily: 'var(--font-space)', fontSize: '1.8rem', fontWeight: 700, color: '#E8650A' }}>{val}</div>
+              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.62rem', color: '#6B6B6B', letterSpacing: '0.1em', textTransform: 'uppercase', marginTop: '0.25rem' }}>{label}</div>
             </div>
           ))}
         </div>
@@ -260,7 +260,7 @@ export default function SocialPlannerPage() {
       <section style={{ padding: '3rem 1.5rem' }}>
         <div style={{ maxWidth: '1100px', margin: '0 auto' }}>
           {divider(t.featuresLabel)}
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1rem' }}>
+          <div className="sp-features-grid">
             {t.features.map((f) => (
               <div key={f.title} style={{
                 background: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.06)',
@@ -277,13 +277,12 @@ export default function SocialPlannerPage() {
 
       {/* Screenshots — 2×2 grid */}
       <section style={{ padding: '3rem 1.5rem' }}>
-        <div style={{ maxWidth: '900px', margin: '0 auto' }}>
+        <div style={{ maxWidth: '580px', margin: '0 auto' }}>
           {divider(t.screenshotsLabel)}
           <div style={{
             display: 'grid',
             gridTemplateColumns: '1fr 1fr',
-            gridTemplateRows: 'auto auto',
-            gap: '0.75rem'
+            gap: '0.5rem'
           }}>
             {t.screenshots.map((s, i) => (
               <div
@@ -341,9 +340,9 @@ export default function SocialPlannerPage() {
               }}>
                 <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.65rem', color: '#E8650A', letterSpacing: '0.15em', minWidth: 28, marginTop: 2 }}>{s.num}</span>
                 <div style={{ flex: 1 }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.4rem' }}>
+                  <div className="sp-steps-row" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '0.75rem', marginBottom: '0.4rem' }}>
                     <h3 style={{ fontFamily: 'var(--font-space)', fontSize: '1rem', fontWeight: 700 }}>{s.title}</h3>
-                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: '#E8650A', background: 'rgba(232,101,10,0.08)', padding: '0.2rem 0.6rem', borderRadius: '999px', whiteSpace: 'nowrap' }}>{s.time}</span>
+                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.6rem', color: '#E8650A', background: 'rgba(232,101,10,0.08)', padding: '0.2rem 0.6rem', borderRadius: '999px', whiteSpace: 'nowrap', flexShrink: 0 }}>{s.time}</span>
                   </div>
                   <p style={{ fontFamily: 'var(--font-inter)', fontSize: '0.85rem', color: '#6B6B6B', lineHeight: 1.7 }}>{s.desc}</p>
                 </div>

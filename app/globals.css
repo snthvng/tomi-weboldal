@@ -123,6 +123,21 @@ body {
   display: inline;
 }
 
+/* Social Planner page specific */
+.sp-features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 1rem;
+}
+
+.sp-stats {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 4rem;
+  flex-wrap: wrap;
+}
+
 @media (max-width: 640px) {
   .about-grid, .services-grid {
     grid-template-columns: 1fr;
@@ -134,5 +149,24 @@ body {
 
   .navbar-inner {
     padding: 0.5rem 1rem !important;
+  }
+
+  /* Social Planner mobile */
+  .sp-stats {
+    gap: 1.25rem;
+    margin-top: 2.5rem;
+  }
+
+  .sp-stats > div {
+    min-width: 80px;
+  }
+
+  .sp-stats .sp-stat-val {
+    font-size: 1.4rem !important;
+  }
+
+  .sp-steps-row {
+    flex-wrap: wrap;
+    gap: 0.4rem !important;
   }
 }
